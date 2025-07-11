@@ -131,14 +131,6 @@ python app.py
 
 Visit `http://127.0.0.1:5000` in your browser to use the prediction interface.
 
----
-
-## 🐳 Run with Docker
-
-```bash
-docker build -t student-performance-app .
-docker run -p 5000:5000 student-performance-app
-```
 
 ---
 
@@ -153,7 +145,7 @@ docker run -p 5000:5000 student-performance-app
 ## 👩‍💻 Author
 
 **Harshita Lalwani**
-Third-Year Computer Science Student | Machine Learning Enthusiast
+Third-Year Computer Science Student | Data Science Enthusiast
 [LinkedIn](https://www.linkedin.com/in/harshitalalwani) 
 
 ---
