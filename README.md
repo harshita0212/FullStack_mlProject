@@ -1,159 +1,139 @@
 ```markdown
 # 🎓 IntelliPredict: Scalable ML System for Student Performance Forecasting
 
-This project implements a complete **Machine Learning lifecycle** to predict student academic performance using various attributes. It follows a robust and scalable architecture, including data pipelines, model training, evaluation, exception handling, logging, and CI/CD-based deployment.
+This project is a complete Machine Learning pipeline built to predict student academic performance based on various features such as study time, past failures, absences, etc. It is designed for production readiness with modular architecture, error handling, logging, model evaluation, and multiple deployment pipelines.
 
 ---
 
 ## 🚀 Features
 
-- End-to-end ML pipeline: Data ingestion ➝ transformation ➝ training ➝ evaluation ➝ prediction
-- Modular and production-grade code structure
-- Custom logging and exception handling mechanisms
-- Model hyperparameter tuning using **GridSearchCV**
-- Integrated prediction API using **Flask**
-- Automated deployment using **GitHub Actions** and **CI/CD pipelines**
+- End-to-end ML pipeline: data ingestion ➝ transformation ➝ training ➝ evaluation ➝ prediction
+- Fully modular and object-oriented codebase
+- Exception handling and logging integrated into every component
+- Hyperparameter tuning using GridSearchCV
+- Flask-based prediction API
+- CI/CD deployment using GitHub Actions, AWS, and Azure
 
 ---
 
 ## 📊 Problem Statement
 
-The goal is to predict the final performance score of students based on features like study time, failures, absences, parental education level, and more. The model is trained to help educational institutions better support students at risk of underperformance.
+To predict final student performance using input attributes collected during their academic sessions. The goal is to help educational institutions proactively support students who may be at risk of poor outcomes.
 
 ---
 
-## 📁 Project Structure
+## 🧠 Key Data Structures Used
 
-```
-
-mlproject/
-│
-├── src/
-│   ├── components/         # Core modules like data ingestion, transformation, training
-│   ├── pipeline/           # Training and prediction pipelines
-│   ├── exception.py        # Custom exception handling
-│   ├── logger.py           # Logging system
-│   └── utils.py            # Utility functions
-│
-├── artifacts/              # Generated datasets and model files
-├── templates/              # HTML templates for Flask web app
-├── app.py                  # Flask web app for prediction
-├── requirements.txt        # Project dependencies
-├── setup.py                # Installation and packaging
-├── Dockerfile              # Docker config for containerization
-├── .github/workflows/      # CI/CD pipeline configurations
-└── README.md               # Project documentation
-
-````
-
----
-
-## 🔧 Tech Stack
-
-- **Programming Language:** Python 3.8+
-- **Data Processing:** pandas, numpy, scikit-learn
-- **Modeling:** scikit-learn (Linear Regression, Decision Tree, Random Forest)
-- **Visualization:** seaborn, matplotlib (for EDA)
-- **Web Framework:** Flask
-- **Packaging & Deployment:** Docker, GitHub Actions, AWS, Azure Web App
-- **Build Tools:** CMake, make (for CI/CD if needed)
-- **Environment:** Conda/venv, requirements.txt
-- **Others:** Logging, Custom Exceptions, GridSearchCV for tuning
-
----
-
-## ⚙️ ML Pipeline Overview
-
-### 1. **Data Ingestion**
-- Loads dataset from CSV
-- Splits into train/test sets
-- Saves processed datasets to `artifacts/`
-
-### 2. **Data Transformation**
-- Handles missing values
-- Encodes categorical variables
-- Standardizes features using pipelines
-
-### 3. **Model Training**
-- Trains multiple models and selects the best one using GridSearchCV
-- Saves the final trained model
-
-### 4. **Model Evaluation**
-- Evaluates model performance on test data
-- Outputs RMSE, R², MAE
-
-### 5. **Prediction Pipeline**
-- Loads saved model
-- Accepts input via Flask UI
-- Returns prediction results
+- **Dictionary & JSON:** For configuration management and model metadata  
+- **Pandas DataFrames:** For structured data processing  
+- **Pipeline (scikit-learn):** For transforming data and building model workflows  
+- **Custom Classes & Objects:** For components like DataIngestion, DataTransformation, and ModelTrainer  
+- **Exception Classes:** For custom error handling across the project  
+- **Logging Handlers:** To trace pipeline execution and errors  
 
 ---
 
 ## 🧪 Testing
 
-- Logging and Exception Handling modules tested independently
-- Data ingestion and transformation stages tested via unit tests
-- Test script available to validate model pipeline
+- Unit testing implemented for core components (data ingestion, transformation, training)
+- Logging and exception flow validated with intentional edge cases
+- Model predictions tested on real-world student data to evaluate consistency
+
+---
+
+## 🛠️ Tech Stack
+
+- **Languages:** Python 3.8+  
+- **Libraries:** pandas, numpy, scikit-learn, seaborn, matplotlib, joblib  
+- **Web Framework:** Flask  
+- **Environment:** Conda / venv  
+- **Deployment:** Docker, GitHub Actions, AWS EC2, Azure Web App  
+- **CI/CD:** GitHub Workflows  
+- **Others:** Logging, Exception Handling, GridSearchCV  
+
+---
+
+## ⚙️ Machine Learning Workflow
+
+### 🔹 Data Ingestion
+- Loads CSV dataset
+- Splits into train/test sets
+- Stores processed files into `artifacts/` directory
+
+### 🔹 Data Transformation
+- Handles missing data and encoding
+- Applies scaling using scikit-learn pipelines
+- Saves transformed objects for reuse
+
+### 🔹 Model Training
+- Trains multiple models and selects best via GridSearchCV
+- Saves trained model artifacts
+
+### 🔹 Model Evaluation
+- Evaluates using metrics like RMSE, MAE, and R² score
+- Compares current vs previous models
+
+### 🔹 Prediction Pipeline
+- Loads saved model and transformers
+- Accepts user input via Flask app
+- Returns performance prediction instantly
 
 ---
 
 ## 🚀 Deployment Methods
 
 ### ✅ GitHub Actions (CI/CD)
-- Automatically builds and tests the application on push
-- Deploys to cloud platforms based on configuration
+- Automates build, test, and deployment processes on every push
+- Ensures code quality and reproducibility
 
-### ✅ AWS Deployment
-- Uses EC2 / S3 for hosting and storing models
-- CI/CD integrated through GitHub Actions
+### ✅ AWS EC2
+- Docker-based deployment of Flask application
+- Supports scaling and remote access
 
-### ✅ Azure Web App Deployment
-- Deploys Flask app to Azure using GitHub workflows
-- Scalable deployment with automatic triggers
+### ✅ Azure Web App
+- Integrated deployment via GitHub Actions
+- Supports automatic redeployment on code changes
 
 ---
 
-## 🔍 How to Run the Project Locally
+## 💻 How to Run Locally
 
-### 1. Clone the Repository
-
+### 1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/mlproject.git
 cd mlproject
 ````
 
-### 2. Create a Virtual Environment
+### 2. Create and activate virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
 
-### 3. Install Dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Train the Model
+### 4. Train the model
 
 ```bash
 python src/pipeline/training_pipeline.py
 ```
 
-### 5. Run Flask App
+### 5. Launch the Flask web app
 
 ```bash
 python app.py
 ```
 
-Visit `http://127.0.0.1:5000` to access the prediction web app.
+Visit `http://127.0.0.1:5000` in your browser to use the prediction interface.
 
 ---
 
-## 📦 Docker Support
-
-To run using Docker:
+## 🐳 Run with Docker
 
 ```bash
 docker build -t student-performance-app .
@@ -164,16 +144,16 @@ docker run -p 5000:5000 student-performance-app
 
 ## 📌 Future Enhancements
 
-* Add support for real-time student dashboards
-* Integrate feature importance visualizations
-* Enable SMS/email alerts for students at risk
+* Add support for real-time analytics dashboard
+* Feature importance visualizations using SHAP or LIME
+* Notification system for at-risk students via email or SMS
 
 ---
 
 ## 👩‍💻 Author
 
 **Harshita Lalwani**
-Third-Year CS Student | Python & Data Science Enthusiast
+Third-Year Computer Science Student | Machine Learning Enthusiast
 [LinkedIn](https://www.linkedin.com/in/harshitalalwani) 
 
 ---
@@ -183,3 +163,4 @@ Third-Year CS Student | Python & Data Science Enthusiast
 This project is licensed under the MIT License.
 
 ```
+
